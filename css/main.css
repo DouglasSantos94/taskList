@@ -1,0 +1,154 @@
+html{
+	font-family: 'Indie Flower', cursive;
+	background-color: rgb(164, 104, 179);
+	color: white;
+}
+
+body, #container, .task-list, .main-header, .main-content, .main-footer, h1, h2{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.clearfix:after{
+	content: '';
+	clear: both;
+	display: block;
+}
+
+.main-header, .main-content{
+	width: 95%;
+	margin: 1.25em auto;
+}
+
+.main-header h1{
+	font-size: 2.7em;
+	text-align: center;
+}
+
+.main-header h2{
+	font-size: 2em;
+	text-align: center;
+}
+
+.main-content{
+	border-top: solid 1px white;
+	padding: 2em 0;
+}
+
+.txt-task{
+	display: block;
+	width: 100%;
+	box-sizing: border-box;
+	border-radius: .3em;
+	border: none;
+	font-size: 1.5em;
+	margin-bottom: .5em;
+	padding: .2em;
+}
+
+.txt-task[placeholder]{
+	color: rgba(164, 104, 179, .7);
+	font-family: 'Indie Flower', cursive;
+}
+
+.btn-add-task{
+	display: block;
+	margin: auto;
+	width: 60%;
+	height: 2em;
+	background-color: white;
+	border: solid 3px transparent;
+	border-radius: .3em;
+	font-size: 1.5em;
+	color: rgb(164, 104, 179);
+	font-weight: bolder;
+	font-family: 'Indie Flower', cursive;
+	transition: all .5s ease-in-out .1s;
+}
+
+.btn-add-task:hover{
+	background-color: rgb(242, 220, 248);
+	border: solid 3px blueviolet;
+	color: blueviolet;
+}
+
+.tasks{
+	margin-top: 3em;
+}
+
+.task-list{
+	width: 100%;
+	font-size: 2em;
+	list-style-type: none;
+}
+
+@media screen and (min-width: 30em){
+	.btn-add-task{
+		width: 50%;
+		font-size: 1.5em;
+	}
+}
+
+@media screen and (min-width: 50em){
+	.btn-add-task{
+		width: 40%;
+		font-size: 1.3em;
+	}
+}
+
+@media screen and (min-width: 75em){
+	.main-header{
+		position: fixed;
+		left: 0;
+		width: 40%;
+		height: 30%;
+		margin: 0;
+		padding: 8em 0 0;
+		border-right: solid 1px white;
+	}
+
+	.main-header h1{
+		font-size: 4em;
+	}
+
+	.main-header h2{
+		font-size: 2.5em;
+	}
+
+	.main-content{
+		width: 60%;
+		float: right;
+		margin: 0;
+		padding: 0;
+		border: none;
+	}
+
+	.add-task{
+		position: fixed;
+		left: 0;
+		top: 30%;
+		width: 40%;
+		height: 70%;
+		padding-top: 7em;
+		border-right: solid 1px white;
+		box-sizing: border-box;
+	}
+
+	.txt-task{
+		width: 70%;
+		font-size: 1.5em;
+		margin: 0 auto 1.5em;
+	}
+
+	.tasks{
+		position: relative;
+		top: 0;
+		width: 95%;
+		margin: 1em auto;
+	}
+
+	.task-list{
+		margin: 0;
+	}
+}
