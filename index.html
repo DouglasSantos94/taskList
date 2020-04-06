@@ -10,9 +10,8 @@
 	<link rel="stylesheet" href="css/main.css">
 	<link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/fonts/style.css">
 
-
-	<script src="js/main.js"></script>
 </head>
 <body>
 	<div id="container">
@@ -22,18 +21,19 @@
 		</header>
 		<main class="main-content">
 			<section class="add-task">
-				<input type="text" placeholder="Digite a tarefa a ser adicionada" name="txt-task" class="txt-task">
-				<button class="btn-add-task">Adicionar tarefa</button>
+				<input type="text" placeholder="Digite a tarefa a ser adicionada" name="txt-task" id="txt-task" maxlength="50">
+				<button id="btn-add-task">Adicionar tarefa</button>
+				<button id="btn-remove-tasks">Remover tarefas concluídas</button>
 			</section>
 			<section class="tasks">
-				<ul class="task-list">
-					<li>teste</li>
+				<ul id="task-list">
 				</ul>
 			</section>
 		</main>
 		<footer id="main-footer">
-
+			
 		</footer>
 	</div>
+	<script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>
