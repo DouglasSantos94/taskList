@@ -76,7 +76,7 @@ button{
 }
 
 
-.tasks{
+#tasks{
 	margin-top: 3em;
 }
 
@@ -151,7 +151,7 @@ button{
 		margin: 0 auto 1.5em;
 	}
 
-	.tasks{
+	#tasks{
 		position: relative;
 		top: 0;
 		width: 95%;
