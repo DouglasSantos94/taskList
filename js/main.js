@@ -9,39 +9,25 @@
 			let btnAddTask = document.getElementById('btn-add-task')
 			let btnRemoveTasks = document.getElementById('btn-remove-tasks')
 
-			this.taskList = function(){
-				return taskList
-			}
-
-			this.txtTask = function(){
-				return txtTask
-			}
-
-			this.btnAddTask = function(){
-				return btnAddTask
-			}
-
-			this.btnRemoveTasks = function(){
-				return btnRemoveTasks
-			}
+			this.taskList = () => taskList
+	
+			this.txtTask = () => txtTask
+	
+			this.btnAddTask = () => btnAddTask
+	
+			this.btnRemoveTasks = () => btnRemoveTasks
 		}
 
 		return _elements
 	})()
 
-	function getElements(){
-		let elements = new Elements()
-		return elements
-	}
+	let getElements = () => new Elements()
 
 	let elements = getElements()
 	let $taskList = elements.taskList()
 	let $btnAddTask = elements.btnAddTask()
 	let $txtTask = elements.txtTask()
 	let $btnRemoveTasks = elements.btnRemoveTasks()
-
-
-	
 	
 	$taskList.addEventListener('click', function(e){
 		let name = e.target.nodeName
@@ -80,7 +66,7 @@
 		let listItem = document.createElement('li')
 		let span = document.createElement('span')
 		span.className = "icon-checkbox-unchecked"
-		let taskText = document.createTextNode(txtTask.value)
+		let taskText = document.createTextNode($txtTask.value)
 		listItem.appendChild(span)
 		listItem.appendChild(taskText)
 		lista.appendChild(listItem)
