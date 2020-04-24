@@ -1,76 +1,61 @@
-(function(){
+(() => {
 	'use strict'
-
-	let Elements = (function(){
-		'use strict'
-		let _elements = function(){
-			let taskList = document.getElementById('task-list')
-			let txtTask = document.getElementById('txt-task')
-			let btnAddTask = document.getElementById('btn-add-task')
-			let btnRemoveTasks = document.getElementById('btn-remove-tasks')
-
-			this.taskList = () => taskList
 	
-			this.txtTask = () => txtTask
+	const taskList = document.getElementById('task-list');
+	const txtTask = document.getElementById('txt-task');
+	const btnAddTask = document.getElementById('btn-add-task');
+	const btnRemoveTasks = document.getElementById('btn-remove-tasks');
+	let tasks = [];
 	
-			this.btnAddTask = () => btnAddTask
-	
-			this.btnRemoveTasks = () => btnRemoveTasks
+	const showTasks = () => {
+		for(let li of tasks){
+			taskList.appendChild(li);
 		}
+		console.log
+	}
 
-		return _elements
-	})()
-
-	let getElements = () => new Elements()
-
-	let elements = getElements()
-	let $taskList = elements.taskList()
-	let $btnAddTask = elements.btnAddTask()
-	let $txtTask = elements.txtTask()
-	let $btnRemoveTasks = elements.btnRemoveTasks()
-	
-	$taskList.addEventListener('click', function(e){
-		let name = e.target.nodeName
-		let isSpan = name === 'SPAN'
-		isSpan ? check(e.target) : check(e.target.firstChild)
-		function check(element){
-			let unchecked = element.className === 'icon-checkbox-unchecked'
-			if(unchecked){
-				element.className = 'icon-checkbox-checked'
-			} else {
-				element.className = 'icon-checkbox-unchecked'
-			}
-		}
-	})
-
-	$btnRemoveTasks.addEventListener('click', function(){
-		let lista = $taskList.children
-		let count = 0
-		while(lista[count]){
-			let li = lista[count]
-			let span = li.firstChild
-			let className = span.className
-			if(className === 'icon-checkbox-checked'){
-				li.parentNode.removeChild(li)
-				if(count > 0){
-					count--
-				}
-			} else {
-				count++
-			}
-		}
-	})
-
-	$btnAddTask.addEventListener('click', function(){
-		let lista = $taskList	
+	const createListItem = (text) => {
 		let listItem = document.createElement('li')
 		let span = document.createElement('span')
 		span.className = "icon-checkbox-unchecked"
-		let taskText = document.createTextNode($txtTask.value)
 		listItem.appendChild(span)
-		listItem.appendChild(taskText)
-		lista.appendChild(listItem)
-		$txtTask.value = ''
-		$txtTask.focus()
+		listItem.appendChild(text)
+		return listItem;
+	}
+	
+	taskList.addEventListener('click', (event) => {
+		const element = event.target;
+		if(element.nodeName === 'SPAN'){
+			const unchecked = element.classList.contains('icon-checkbox-unchecked');
+			const li = element.parentElement;
+			if(unchecked){
+				element.className = 'icon-checkbox-checked';
+				li.classList.add('checked');
+				return; 
+			}
+			element.className = 'icon-checkbox-unchecked';
+			li.classList.remove('checked');
+		}
+	});
+	
+	
+	btnAddTask.addEventListener('click', () => {
+		let taskText = document.createTextNode(txtTask.value)
+		const listItem = createListItem(taskText);
+		const taskExists = tasks.some((li) => li.textContent === listItem.textContent.trim());
+		if(!taskExists){
+			tasks.push(listItem);	
+		}
+		showTasks()
+		
+		txtTask.value = ''
+		txtTask.focus()
 	})
+	
+	btnRemoveTasks.addEventListener('click', () => {
+		taskList.innerHTML = '';
+		tasks = tasks.filter(li => !li.classList.contains('checked'));
+		showTasks();
+	})
+
 })()
