@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Lista de Tarefas</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="author" content="Douglas Santos">
+	<meta name="description" content="Lista de tarefas para auxiliar no dia-a-dia">
+	<meta name="keywords" content="lista, tarefas, task, list, todo">
+	<link rel="stylesheet" href="css/main.css">
+	<link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/fonts/style.css">
+
+</head>
+<body>
+	<div id="container">
+		<header class="main-header clearfix">
+			<h1>Lista de Tarefas</h1>
+			<h2>Para planejar melhor o dia</h2>
+		</header>
+		<main class="main-content">
+			<section class="add-task">
+				<input type="text" placeholder="Digite a tarefa a ser adicionada" name="txt-task" id="txt-task" maxlength="50">
+				<button id="btn-add-task">Adicionar tarefa</button>
+				<button id="btn-remove-tasks">Remover tarefas concluídas</button>
+			</section>
+			<section id="tasks">
+				<ul id="task-list">
+				</ul>
+			</section>
+		</main>
+		<footer id="main-footer">
+			
+		</footer>
+	</div>
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
